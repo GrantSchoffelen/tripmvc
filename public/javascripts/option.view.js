@@ -4,6 +4,6 @@ var ActivityOptionView = Backbone.View.extend( {
   render: function() {
     this.$el.html(this.buildHTML());
     return this; 
-  }, 
-  
+}
+
 })

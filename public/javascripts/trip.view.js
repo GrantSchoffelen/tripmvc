@@ -12,7 +12,8 @@ var TripView = Backbone.View.extend( {
 
 	initialize: function () {
 		this.listenTo(temp_days, 'add', this.createDayBtn);
-		 this.createDropDown();
+		this.createDropDown();
+		this.createOption(); 
 		this.model = new Trip();
 	},
 
@@ -24,8 +25,13 @@ var TripView = Backbone.View.extend( {
 	},
 
 	createDropDown: function() {
- 	var view = new ActivitySelectView ().render();
-  	this.$el.find('.choose.hotels').append(view.$el);
+ 	var view = new ActivitySelectView().render();
+  	this.$el.find('#rid, #tid, #hid').append(view.$el);
+	}, 
+
+	createOption: function(){
+		var view = new ActivityOptionView().render(); 
+		this.$el.find('.dropdown-menu').append(view.$el)
 	}
 })
 
